@@ -1,0 +1,163 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Gerald Versluis",
+    "classifications": ["Test", "xUnit", "UI Test", "MAUI", "Appium", "Android", "iOS", "macOS", "Mac Catalyst", "Windows", "Mobile"],
+    "name": ".NET MAUI UI Test Project (xUnit & Appium)",
+    "generatorVersions": "[1.0.0.0-*)",
+    "description": "A project that contains xUnit.net tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS",
+    "precedence": "11000",
+    "identity": "Template.Maui.UITesting.xUnit.CSharp.8.0",
+    "shortName": "maui-uitest-xunit",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "preferNameDirectory": false,
+    "symbols": {
+      "TargetFrameworkOverride": {
+        "type": "parameter",
+        "description": "Overrides the target framework",
+        "replaces": "TargetFrameworkOverride",
+        "datatype": "string",
+        "defaultValue": ""
+      },
+      "Framework": {
+        "type": "parameter",
+        "description": "The target framework for the project.",
+        "datatype": "choice",
+        "choices": [
+          {
+            "choice": "net8.0",
+            "description": "Target net8.0"
+          }
+        ],
+        "replaces": "net8.0",
+        "defaultValue": "net8.0"
+      },
+      "HostIdentifier": {
+        "type": "bind",
+        "binding": "host:HostIdentifier"
+      },
+      "skipRestore": {
+        "type": "parameter",
+        "datatype": "bool",
+        "description": "If specified, skips the automatic restore of the project on create.",
+        "defaultValue": "false"
+      },
+      "android": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "false",
+        "defaultIfOptionWithoutValue": "true",
+        "displayName": "Android UI test project",
+        "description": "Include the Android app UI test project"
+      },
+      "ios": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "false",
+        "defaultIfOptionWithoutValue": "true",
+        "displayName": "iOS UI test project",
+        "description": "Include the iOS app UI test project"
+      },
+      "maccatalyst": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "false",
+        "defaultIfOptionWithoutValue": "true",
+        "displayName": "macOS UI test project",
+        "description": "Include the macOS app UI test project"
+      },
+      "winui": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "false",
+        "defaultIfOptionWithoutValue": "true",
+        "displayName": "Windows UI test project",
+        "description": "Include the Windows app UI test project"
+      },
+      "includeAppiumServerStartup": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "false",
+        "defaultIfOptionWithoutValue": "true",
+        "displayName": "Automatically start Appium Server",
+        "description": "When enabled, includes code to start/stop the Appium server as part of the test run. Appium prerequisites will need to be present for this to work."
+      },
+      "AllPlatforms": {
+        "type": "computed",
+        "value": "(!android && !ios && !maccatalyst && !winui)"
+      }
+    },
+    "sources": [
+        {
+            "source": "./",
+            "target": "./",
+            "modifiers": [
+            {
+                "condition": "(!android && !AllPlatforms)",
+                "exclude": [
+                  "UITests.Anroid/**/*"
+                ]
+            },
+            {
+                "condition": "(!ios && !AllPlatforms)",
+                "exclude": [
+                  "UITests.iOS/**/*"
+                ]
+            },
+            {
+                "condition": "(!maccatalyst && !AllPlatforms)",
+                "exclude": [
+                  "UITests.macOS/**/*"
+                ]
+            },
+            {
+                "condition": "(!winui && !AllPlatforms)",
+                "exclude": [
+                  "UITests.Windows/**/*"
+                ]
+            },
+            {
+                "condition": "!includeAppiumServerStartup",
+                "exclude": [
+                  "UITests.Shared/AppiumServerHelper.cs"
+                ]
+            }
+            ]
+        }
+    ],
+    "primaryOutputs": [
+      { 
+        "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+        "path": "./UITests.Shared/UITests.Shared.csproj"
+      },
+      {
+        "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+        "path": "./UITests.Android/UITests.Android.csproj"
+      },
+      {
+        "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+        "path": "./UITests.iOS/UITests.iOS.csproj"
+      },
+      {
+        "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+        "path": "./UITests.macOS/UITests.macOS.csproj"
+      },
+      {
+        "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+        "path": "./UITests.Windows/UITests.Windows.csproj"
+      }
+    ],
+    "defaultName": "UITests",
+    "postActions": [
+      {
+        "condition": "(!skipRestore)",
+        "description": "Restore NuGet packages required by this project.",
+        "manualInstructions": [{ "text": "Run 'dotnet restore'" }],
+        "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+        "id": "restoreNugetPackages",
+        "continueOnError": true
+      }
+    ]
+  }

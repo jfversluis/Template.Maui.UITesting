@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <IncludeBuildOutput>False</IncludeBuildOutput>
+        <IncludeSource>False</IncludeSource>
+        <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+        <OutputPath>$(TemplatesFolder)</OutputPath>
+        <EnableDefaultItems>False</EnableDefaultItems>
+        <IsPackable>true</IsPackable>
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <NoWarn>2008;NU5125</NoWarn>
+
+        <PackageId>Template.Maui.UITesting.8.0</PackageId>
+        <Authors>Gerald Versluis</Authors>
+        <Description>UI Test Templates for .NET MAUI</Description>
+        <language>en-US</language>
+        <PackageProjectUrl>https://github.com/jfversluis/Template.Maui.UITesting</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageType>Template</PackageType>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Remove="Microsoft.NETCore.App" />
+        <Content Include="content\**">
+            <PackagePath>content</PackagePath>
+        </Content>
+    </ItemGroup>
+</Project>
