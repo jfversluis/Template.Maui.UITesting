@@ -1,13 +1,13 @@
 {
     "$schema": "http://json.schemastore.org/template",
     "author": "Gerald Versluis",
-    "classifications": ["Test", "NUnit", "UI Test", "MAUI", "Appium", "Android", "iOS", "macOS", "Mac Catalyst", "Windows", "Mobile"],
-    "name": ".NET MAUI UI Test Project (NUnit & Appium)",
+    "classifications": ["Test", "MSTest", "UI Test", "MAUI", "Appium", "Android", "iOS", "macOS", "Mac Catalyst", "Windows", "Mobile"],
+    "name": ".NET MAUI UI Test Project (MSTest & Appium)",
     "generatorVersions": "[1.0.0.0-*)",
-    "description": "A project that contains NUnit tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS",
+    "description": "A project that contains MSTest tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS",
     "precedence": "11000",
-    "identity": "Template.Maui.UITesting.NUnit.CSharp",
-    "shortName": "maui-uitest-nunit",
+    "identity": "Template.Maui.UITesting.MSTest.CSharp",
+    "shortName": "maui-uitest-mstest",
     "tags": {
       "language": "C#",
       "type": "project"
