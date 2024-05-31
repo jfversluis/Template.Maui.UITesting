@@ -2,7 +2,7 @@
     "$schema": "http://json.schemastore.org/template",
     "author": "Gerald Versluis",
     "classifications": [ "UI Test", "MSTest", "Appium", "MAUI" ],
-    "name": "MSTest Test Class",
+    "name": ".NET MAUI UI Test Class (MSTest)",
     "generatorVersions": "[1.0.0.0-*)",
     "description": "Creates a new .NET MAUI UI test class using MSTest",
     "groupIdentity": "Template.Maui.UITesting.MSTest.TestClass",

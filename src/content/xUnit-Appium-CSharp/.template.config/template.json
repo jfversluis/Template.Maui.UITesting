@@ -4,7 +4,7 @@
     "classifications": ["Test", "xUnit", "UI Test", "MAUI", "Appium", "Android", "iOS", "macOS", "Mac Catalyst", "Windows", "Mobile"],
     "name": ".NET MAUI UI Test Project (xUnit & Appium)",
     "generatorVersions": "[1.0.0.0-*)",
-    "description": "A project that contains xUnit.net tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS",
+    "description": "Projects that contain xUnit.net tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS",
     "precedence": "11000",
     "identity": "Template.Maui.UITesting.xUnit.CSharp",
     "shortName": "maui-uitest-xunit",
