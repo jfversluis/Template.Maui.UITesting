@@ -10,7 +10,7 @@
         <NoPackageAnalysis>true</NoPackageAnalysis>
         <NoWarn>2008;NU5125</NoWarn>
 
-        <PackageId>Template.Maui.UITesting.8.0</PackageId>
+        <PackageId>Template.Maui.UITesting</PackageId>
         <Authors>Gerald Versluis</Authors>
         <Description>UI Test Templates for .NET MAUI</Description>
         <language>en-US</language>
