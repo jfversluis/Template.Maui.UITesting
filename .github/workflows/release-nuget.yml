@@ -18,11 +18,13 @@ jobs:
           git branch --remote --contains | grep origin/main
       - name: Get version information from tag
         id: get_version
-        uses: dhkatz/get-version-action@v3
-      - name: Pack
-        run: dotnet pack Template.Maui.UITesting.sln -c Release -p:PackageVersion=${{ steps.get_version.outputs.version-without-v }}
-      - name: Push
         run: |
-          dotnet nuget push Template.Maui.UITesting\bin\Release\Template.Maui.UITesting.${{ steps.get_version.outputs.version-without-v }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.NUGET_API_KEY }}
+          $version="${{github.ref_name}}".replace("v", "")
+          "version-without-v=$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+      - name: Pack
+        run: dotnet pack Template.Maui.UITesting.sln -c Release -p:PackageVersion=$env:version-without-v
+      #- name: Push
+      #  run: |
+      #    dotnet nuget push Template.Maui.UITesting\bin\Release\Template.Maui.UITesting.${{ steps.get_version.outputs.version-without-v }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.NUGET_API_KEY }}
