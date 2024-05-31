@@ -22,7 +22,7 @@ jobs:
           $version="${{github.ref_name}}".TrimStart("v")
           "version-without-v=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Pack
-        run: dotnet pack Template.Maui.UITesting.sln -c Release -p:PackageVersion=${{ steps.get_version.outputs.version-without-v }} -o pack
+        run: dotnet pack src\Template.Maui.UITesting.sln -c Release -p:PackageVersion=${{ steps.get_version.outputs.version-without-v }} -o pack
       - name: Push
         run: |
           dotnet nuget push pack\Template.Maui.UITesting.${{ steps.get_version.outputs.version-without-v }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
