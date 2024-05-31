@@ -19,7 +19,7 @@ jobs:
       - name: Get version information from tag
         id: get_version
         run: |
-          $version="${{github.ref_name}}".replace("v", "")
+          $version="${{github.ref_name}}".TrimStart("v")
           "version-without-v=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Pack
         run: dotnet pack Template.Maui.UITesting.sln -c Release -p:PackageVersion=${{ steps.get_version.outputs.version-without-v }}
