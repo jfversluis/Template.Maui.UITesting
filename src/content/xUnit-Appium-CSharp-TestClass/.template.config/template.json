@@ -4,7 +4,7 @@
     "classifications": [ "UI Test", "xUnit", "Appium", "MAUI" ],
     "name": ".NET MAUI UI Test Class (Xunit.net)",
     "generatorVersions": "[1.0.0.0-*)",
-    "description": ".NET MAUI UI Test Class (MSTest)",
+    "description": "Creates a new .NET MAUI UI test class using xUnit.net",
     "groupIdentity": "Template.Maui.UITesting.xUnit.TestClass",
     "precedence": "11000",
     "identity": "Template.Maui.UITesting.xUnit.TestClass.CSharp",
