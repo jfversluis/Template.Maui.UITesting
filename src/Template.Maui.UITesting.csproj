@@ -10,6 +10,7 @@
         <NoPackageAnalysis>true</NoPackageAnalysis>
         <NoWarn>2008;NU5125</NoWarn>
 
+        <!-- NuGet -->
         <PackageId>Template.Maui.UITesting</PackageId>
         <Authors>Gerald Versluis</Authors>
         <Description>UI Test Templates for .NET MAUI</Description>
@@ -17,6 +18,8 @@
         <PackageProjectUrl>https://github.com/jfversluis/Template.Maui.UITesting</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageType>Template</PackageType>
+        <PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Remove="Microsoft.NETCore.App" />
@@ -24,4 +27,10 @@
             <PackagePath>content</PackagePath>
         </Content>
     </ItemGroup>
+
+  	<!-- Package additions -->
+	<ItemGroup>
+		<None Include="..\icon.png" PackagePath="icon.png" Pack="true" />
+		<None Include="..\README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 </Project>
