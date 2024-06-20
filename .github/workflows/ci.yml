@@ -1,0 +1,37 @@
+name: Build and Pack
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-pack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release
+
+      - name: Pack
+        run: dotnet pack /src/Template.Maui.UITesting.csproj --configuration Release --output ./artifacts
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: built-artifacts
+          path: ./artifacts
