@@ -5,6 +5,7 @@
     <TargetFramework Condition="'$(TargetFrameworkOverride)' != ''">TargetFrameworkOverride</TargetFramework>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <GenerateMSBuildEditorConfigFile>False</GenerateMSBuildEditorConfigFile>
+    <GenerateTargetFrameworkAttribute>False</GenerateTargetFrameworkAttribute>
     <RootNamespace>UITests</RootNamespace>
   </PropertyGroup>
 
