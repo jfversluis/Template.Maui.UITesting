@@ -22,10 +22,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore /src/Template.Maui.UITesting.csproj
 
       - name: Build
-        run: dotnet build --configuration Release
+        run: dotnet build /src/Template.Maui.UITesting.csproj --configuration Release
 
       - name: Pack
         run: dotnet pack /src/Template.Maui.UITesting.csproj --configuration Release --output ./artifacts
