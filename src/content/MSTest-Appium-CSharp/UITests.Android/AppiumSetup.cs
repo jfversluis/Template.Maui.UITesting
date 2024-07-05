@@ -14,7 +14,7 @@ public class AppiumSetup
 	public static AppiumDriver App => driver ?? throw new NullReferenceException("AppiumDriver is null");
 
 	[AssemblyInitialize]
-	public void RunBeforeAnyTests()
+	public static void RunBeforeAnyTests(TestContext context)
 	{
 #if (includeAppiumServerStartup)
 		// If you started an Appium server manually, make sure to comment out the next line
@@ -60,7 +60,7 @@ public class AppiumSetup
 	}
 
 	[AssemblyCleanup]
-	public void RunAfterAnyTests()
+	public static void RunAfterAnyTests()
 	{
 		driver?.Quit();
 #if (includeAppiumServerStartup)
