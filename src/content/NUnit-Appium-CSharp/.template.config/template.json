@@ -105,7 +105,7 @@
             {
                 "condition": "(!android && !AllPlatforms)",
                 "exclude": [
-                  "UITests.Anroid/**/*"
+                  "UITests.Android/**/*"
                 ]
             },
             {
@@ -160,7 +160,7 @@
     "defaultName": "UITests",
     "postActions": [
       {
-        "condition": "(!skipRestore)",
+        "condition": "(!skipRestore && HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
         "description": "Restore NuGet packages required by this project.",
         "manualInstructions": [{ "text": "Run 'dotnet restore'" }],
         "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
