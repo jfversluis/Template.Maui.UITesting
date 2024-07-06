@@ -28,7 +28,7 @@ public class AppiumSetup
 			// Always Windows for Windows
 			PlatformName = "Windows",
 			// The identifier of the deployed application to test
-			App = "com.companyname.basicappiumsample_9zz4h110yvjzm!App",
+			App = "appIdentifier_9zz4h110yvjzm!App",
 		};
 
 		// Note there are many more options that you can use to influence the app under test according to your needs
