@@ -84,6 +84,15 @@
         "displayName": "Automatically start Appium Server",
         "description": "When enabled, includes code to start/stop the Appium server as part of the test run. Appium prerequisites will need to be present for this to work."
       },
+      "appIdentifier": {
+        "type": "parameter",
+        "datatype": "text",
+        "defaultIfOptionWithoutValue": "true",
+        "displayName": "Application Identifier (i.e. com.companyname.app)",
+        "description": "Enter your application identifier (found in your .NET MAUI csproj file under the <ApplicationId> node). This will be pre-filled in the UI test templates to start your app correctly.",
+        "replaces": "appIdentifier",
+        "defaultValue": "com.companyname.applicationname"
+      },
       "AllPlatforms": {
         "type": "computed",
         "value": "(!android && !ios && !maccatalyst && !winui)"
@@ -97,7 +106,7 @@
             {
                 "condition": "(!android && !AllPlatforms)",
                 "exclude": [
-                  "UITests.Anroid/**/*"
+                  "UITests.Android/**/*"
                 ]
             },
             {
@@ -152,7 +161,7 @@
     "defaultName": "UITests",
     "postActions": [
       {
-        "condition": "(!skipRestore)",
+        "condition": "(!skipRestore && HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
         "description": "Restore NuGet packages required by this project.",
         "manualInstructions": [{ "text": "Run 'dotnet restore'" }],
         "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",

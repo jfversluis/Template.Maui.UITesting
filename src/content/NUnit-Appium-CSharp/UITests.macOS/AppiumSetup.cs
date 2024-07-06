@@ -32,7 +32,7 @@ public class AppiumSetup
 		};
 
 		// Setting the Bundle ID is required, else the automation will run on Finder
-		macOptions.AddAdditionalAppiumOption(IOSMobileCapabilityType.BundleId, "com.companyname.basicappiumsample");
+		macOptions.AddAdditionalAppiumOption(IOSMobileCapabilityType.BundleId, "appIdentifier");
 
 		// Note there are many more options that you can use to influence the app under test according to your needs
 

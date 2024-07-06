@@ -44,6 +44,10 @@
         "id": "includeAppiumServerStartup",
         "isVisible": true,
         "defaultValue": "true"
+      },
+      {
+        "id": "appIdentifier",
+        "isVisible": true
       }
     ]
   }

@@ -30,6 +30,10 @@
       "includeAppiumServerStartup": {
         "longName": "include-appium-startup",
         "shortName": ""
+      },
+      "applicationId": {
+        "longName": "application-identifier",
+        "shortName": "appid"
       }
     }
   }
