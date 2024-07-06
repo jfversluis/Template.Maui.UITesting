@@ -87,10 +87,11 @@
       "appIdentifier": {
         "type": "parameter",
         "datatype": "text",
-        "defaultValue": "",
         "defaultIfOptionWithoutValue": "true",
         "displayName": "Application Identifier (i.e. com.companyname.app)",
-        "description": "Enter your application identifier (found in your .NET MAUI csproj file under the <ApplicationId> node). This will be pre-filled in the UI test templates to start your app correctly."
+        "description": "Enter your application identifier (found in your .NET MAUI csproj file under the <ApplicationId> node). This will be pre-filled in the UI test templates to start your app correctly.",
+        "replaces": "appIdentifier",
+        "defaultValue": "com.companyname.applicationname"
       },
       "AllPlatforms": {
         "type": "computed",
