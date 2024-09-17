@@ -9,7 +9,6 @@ public class AppiumSetup : IDisposable
 
 	public static AppiumDriver App => driver ?? throw new NullReferenceException("AppiumDriver is null");
 
-	[OneTimeSetUp]
 	public void RunBeforeAnyTests()
 	{
 #if (includeAppiumServerStartup)
