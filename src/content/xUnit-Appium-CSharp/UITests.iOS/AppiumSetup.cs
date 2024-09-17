@@ -1,5 +1,3 @@
-using NUnit.Framework;
-
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.iOS;
 
