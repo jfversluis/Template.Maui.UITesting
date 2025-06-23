@@ -31,6 +31,33 @@ The template has options to include/exclude platforms as you like.
 | .NET MAUI UI Test Projects (NUnit & Appium) | Projects that contain NUnit tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS | `dotnet new maui-uitest-nunit` |
 | .NET MAUI UI Test Projects (xUnit & Appium) | Projects that contain xUnit.net tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS | `dotnet new maui-uitest-xunit` |
 
+## Template Options
+
+All project templates support the following options:
+
+### Platform Selection
+- `--android` - Include Android UI test project
+- `--ios` - Include iOS UI test project  
+- `--maccatalyst` - Include macOS UI test project
+- `--winui` - Include Windows UI test project
+
+### Additional Features
+- `--include-appium-startup` - Automatically start/stop Appium Server as part of the test run
+- `--include-helpers` - Include the [Plugin.Maui.UITestHelpers](https://github.com/jfversluis/Plugin.Maui.UITestHelpers) package for helpful UI testing utilities
+
+### Examples
+
+```bash
+# Create MSTest template with Android support and UITestHelpers
+dotnet new maui-uitest-mstest --android --include-helpers
+
+# Create NUnit template with iOS support and UITestHelpers
+dotnet new maui-uitest-nunit --ios --include-helpers
+
+# Create xUnit template with multiple platforms and all features
+dotnet new maui-uitest-xunit --android --ios --include-appium-startup --include-helpers
+```
+
 ### Item Templates
 
 | Name | Description | Command |
