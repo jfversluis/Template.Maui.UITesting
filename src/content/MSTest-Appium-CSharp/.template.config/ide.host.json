@@ -46,6 +46,11 @@
         "defaultValue": "true"
       },
       {
+        "id": "include-helpers",
+        "isVisible": true,
+        "defaultValue": "false"
+      },
+      {
         "id": "appIdentifier",
         "isVisible": true
       }
