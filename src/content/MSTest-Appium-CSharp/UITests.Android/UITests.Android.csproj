@@ -14,6 +14,9 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.4.3" />
     <PackageReference Include="MSTest.TestFramework" Version="3.4.3" />
+<!--#if (includeUITestHelpers)-->
+    <PackageReference Include="Plugin.Maui.UITestHelpers" Version="1.0.0" />
+<!--#endif-->
   </ItemGroup>
 
   <ItemGroup>

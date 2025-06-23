@@ -84,6 +84,14 @@
         "displayName": "Automatically start Appium Server",
         "description": "When enabled, includes code to start/stop the Appium server as part of the test run. Appium prerequisites will need to be present for this to work."
       },
+      "includeUITestHelpers": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "false",
+        "defaultIfOptionWithoutValue": "true",
+        "displayName": "Include UITestHelpers plugin",
+        "description": "When enabled, includes the Plugin.Maui.UITestHelpers package that provides helpful utilities for UI testing."
+      },
       "appIdentifier": {
         "type": "parameter",
         "datatype": "text",
