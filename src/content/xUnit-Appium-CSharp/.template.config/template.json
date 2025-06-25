@@ -93,6 +93,14 @@
         "replaces": "appIdentifier",
         "defaultValue": "com.companyname.applicationname"
       },
+      "installUITestHelpers": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "false",
+        "defaultIfOptionWithoutValue": "false",
+        "displayName": "Install Plugin.Maui.UITestHelpers.Appium NuGet",
+        "description": "Installs the Plugin.Maui.UITestHelpers.Appium NuGet with helpers that make it easier to execute Appium operations on your app. For more information see: https://github.com/jfversluis/Plugin.Maui.UITestHelpers"
+      },
       "AllPlatforms": {
         "type": "computed",
         "value": "(!android && !ios && !maccatalyst && !winui)"
