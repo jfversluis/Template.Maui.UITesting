@@ -28,7 +28,7 @@ public class AppiumSetup : IDisposable
 			// The full path to the .apk file
 			// This only works with release builds because debug builds have fast deployment enabled
 			// and Appium isn't compatible with fast deployment
-			// App = Path.Join(TestContext.CurrentContext.TestDirectory, "../../../../MauiApp/bin/Release/net9.0-android/appIdentifier-Signed.apk"),
+			// App = Path.Join(TestContext.CurrentContext.TestDirectory, "../../../../MauiApp/bin/Release/net10.0-android/appIdentifier-Signed.apk"),
 			// END RELEASE BUILD SETUP
 		};
 
