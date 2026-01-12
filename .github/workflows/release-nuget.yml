@@ -9,6 +9,10 @@ jobs:
   release-nuget:
   
     runs-on: windows-latest
+    
+    permissions:
+      id-token: write  # Required for OIDC authentication with NuGet.org
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -23,8 +27,11 @@ jobs:
           "version-without-v=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Pack
         run: dotnet pack src\Template.Maui.UITesting.sln -c Release -p:PackageVersion=${{ steps.get_version.outputs.version-without-v }} -o pack
-      - name: Push
+      - name: NuGet Login (OIDC)
+        uses: NuGet/login@v1
+        id: nuget_login
+        with:
+          user: jfversluis
+      - name: Push to NuGet.org
         run: |
-          dotnet nuget push pack\Template.Maui.UITesting.${{ steps.get_version.outputs.version-without-v }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.NUGET_API_KEY }}
+          dotnet nuget push pack\Template.Maui.UITesting.${{ steps.get_version.outputs.version-without-v }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ steps.nuget_login.outputs.NUGET_API_KEY }}
