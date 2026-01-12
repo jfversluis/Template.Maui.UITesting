@@ -5,10 +5,24 @@ on:
     tags:
     - "v[0-9]+.[0-9]+.[0-9]+"
     - "v[0-9]+.[0-9]+.[0-9]+-preview[0-9]+"
+
+# Before this workflow will work, you need to configure Trusted Publishing on NuGet.org:
+# 1. Log into nuget.org and go to your account settings
+# 2. Navigate to "Trusted Publishing" section
+# 3. Add a new policy with:
+#    - Repository Owner: jfversluis
+#    - Repository: Template.Maui.UITesting
+#    - Workflow File: release-nuget.yml (do NOT include .github/workflows/)
+# 4. You also need to create a secret called NUGET_USERNAME with your NuGet.org username
+
 jobs:
   release-nuget:
   
     runs-on: windows-latest
+    
+    permissions:
+      id-token: write  # Required for OIDC authentication with NuGet.org
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -23,8 +37,11 @@ jobs:
           "version-without-v=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Pack
         run: dotnet pack src\Template.Maui.UITesting.sln -c Release -p:PackageVersion=${{ steps.get_version.outputs.version-without-v }} -o pack
-      - name: Push
+      - name: NuGet Login (OIDC)
+        uses: NuGet/login@v1
+        id: nuget_login
+        with:
+          user: ${{ secrets.NUGET_USERNAME }}
+      - name: Push to NuGet.org
         run: |
-          dotnet nuget push pack\Template.Maui.UITesting.${{ steps.get_version.outputs.version-without-v }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.NUGET_API_KEY }}
+          dotnet nuget push pack\Template.Maui.UITesting.${{ steps.get_version.outputs.version-without-v }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ steps.nuget_login.outputs.NUGET_API_KEY }}
