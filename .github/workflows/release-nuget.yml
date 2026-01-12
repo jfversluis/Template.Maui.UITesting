@@ -31,7 +31,7 @@ jobs:
         uses: NuGet/login@v1
         id: nuget_login
         with:
-          user: ${{ secrets.NUGET_USERNAME }}
+          user: jfversluis
       - name: Push to NuGet.org
         run: |
           dotnet nuget push pack\Template.Maui.UITesting.${{ steps.get_version.outputs.version-without-v }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ steps.nuget_login.outputs.NUGET_API_KEY }}
