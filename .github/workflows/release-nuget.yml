@@ -5,16 +5,6 @@ on:
     tags:
     - "v[0-9]+.[0-9]+.[0-9]+"
     - "v[0-9]+.[0-9]+.[0-9]+-preview[0-9]+"
-
-# Before this workflow will work, you need to configure Trusted Publishing on NuGet.org:
-# 1. Log into nuget.org and go to your account settings
-# 2. Navigate to "Trusted Publishing" section
-# 3. Add a new policy with:
-#    - Repository Owner: jfversluis
-#    - Repository: Template.Maui.UITesting
-#    - Workflow File: release-nuget.yml (do NOT include .github/workflows/)
-# 4. You also need to create a secret called NUGET_USERNAME with your NuGet.org username
-
 jobs:
   release-nuget:
   
