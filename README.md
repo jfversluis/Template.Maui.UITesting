@@ -30,6 +30,7 @@ The template has options to include/exclude platforms as you like.
 | .NET MAUI UI Test Projects (MSTest & Appium) | Projects that contain MSTest tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS | `dotnet new maui-uitest-mstest` |
 | .NET MAUI UI Test Projects (NUnit & Appium) | Projects that contain NUnit tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS | `dotnet new maui-uitest-nunit` |
 | .NET MAUI UI Test Projects (xUnit & Appium) | Projects that contain xUnit.net tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS | `dotnet new maui-uitest-xunit` |
+| .NET MAUI UI Test Projects (TUnit & Appium) | Projects that contain TUnit tests with Appium that can run on .NET MAUI on Android, iOS, Windows and macOS | `dotnet new maui-uitest-tunit` |
 
 ### Item Templates
 
@@ -38,3 +39,4 @@ The template has options to include/exclude platforms as you like.
 | .NET MAUI UI Test Class (MSTest) |Creates a new .NET MAUI UI test class using MSTest | `dotnet new maui-uitest-mstest-class` |
 | .NET MAUI UI Test Class (NUnit) | Creates a new .NET MAUI UI test class using NUnit | `dotnet new maui-uitest-nunit-class` |
 | .NET MAUI UI Test Class (xUnit.net) | Creates a new .NET MAUI UI test class using xUnit.net | `dotnet new maui-uitest-xunit-class` |
+| .NET MAUI UI Test Class (TUnit) | Creates a new .NET MAUI UI test class using TUnit | `dotnet new maui-uitest-tunit-class` |
