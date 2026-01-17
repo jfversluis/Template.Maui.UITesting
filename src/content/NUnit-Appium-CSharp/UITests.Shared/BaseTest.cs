@@ -17,4 +17,14 @@ public abstract class BaseTest
 
 		return App.FindElement(MobileBy.Id(id));
 	}
+
+    protected ReadOnlyCollection<AppiumElement> FindUIElements(string id)
+    {
+        if (App is WindowsDriver)
+        {
+            return App.FindElements(MobileBy.AccessibilityId(id));
+        }
+
+        return App.FindElements(MobileBy.Id(id));
+    }
 }
